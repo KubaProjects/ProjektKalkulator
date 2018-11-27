@@ -1,5 +1,6 @@
 package com.mwo.calculator.service;
 
+import com.mwo.calculator.model.MemeResponse;
 import java.util.ArrayList;
 import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,11 @@ public class MemeServiceImpl implements MemeService {
         memes.add("https://images6.memedroid.com/images/UPLOADED1/50c8732f45203.jpeg");
         memes.add("https://img.washingtonpost.com/news/the-intersect/wp-content/uploads/sites/32/2015/04/putin-meme.jpg");
     }
-    
+
     @Override
-    public String getRandomMemeUrl() {
+    public MemeResponse getRandomMemeUrl() {
         Random r = new Random();
-        return memes.get(r.nextInt(memes.size()));
+        String memeUrl = memes.get(r.nextInt(memes.size()));
+        return new MemeResponse(memeUrl);
     }
-    
 }

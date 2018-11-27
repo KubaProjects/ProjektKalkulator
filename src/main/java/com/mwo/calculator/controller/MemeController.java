@@ -1,5 +1,6 @@
 package com.mwo.calculator.controller;
 
+import com.mwo.calculator.model.MemeResponse;
 import com.mwo.calculator.service.MemeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,13 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/meme")
 public class MemeController {
-    
+
     @Autowired
     MemeService memeService;
-    
+
     @GetMapping(headers = "Accept=application/json")
     public @ResponseBody
-    String get() {
+    MemeResponse get() {
         return memeService.getRandomMemeUrl();
     }
 }
