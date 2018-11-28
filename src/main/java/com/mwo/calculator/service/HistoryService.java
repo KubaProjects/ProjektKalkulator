@@ -8,19 +8,9 @@ import java.util.List;
 
 public interface HistoryService {
 
-    void addToStockHistory(HttpSession session, StockCalc stockCalc);
+    void addToStockHistory(StockCalc stockCalc);
 
-    List<StockCalc> getLastOperationsFromStackHistory(HttpSession session, Integer limit);
+    List<StockCalc> getLastOperationsFromStackHistory(Integer limit);
 
-    StockCalc getLastOperationFromStackHistory(HttpSession session);
-
-    StockCalc getFirstOperationFromStackHistory(HttpSession session);
-
-    StockCalc getAndRemoveLastOperationFromStackHistory(HttpSession session);
-
-    StockCalc getAndRemoveFirstOperationFromStackHistory(HttpSession session);
-
-    LinkedList<StockCalc> getStockHistory(HttpSession session);
-
-    void clearHistory(HttpSession session);
+    void clearHistory();
 }

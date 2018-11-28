@@ -20,7 +20,7 @@ public class HistoryController {
     @GetMapping
     ResponseEntity<List<StockCalc>> histGet(@RequestParam(value = "limit", required = false) Integer limit, HttpSession session) {
 
-        List<StockCalc> stockHistory = historyServiceImpl.getLastOperationsFromStackHistory(session, limit);
+        List<StockCalc> stockHistory = historyServiceImpl.getLastOperationsFromStackHistory(limit);
 
         if (stockHistory == null) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
@@ -32,7 +32,7 @@ public class HistoryController {
 
     @DeleteMapping(value = "/clear")
     public void clearHistory(HttpSession session) {
-        historyServiceImpl.clearHistory(session);
+        historyServiceImpl.clearHistory();
     }
 
 }

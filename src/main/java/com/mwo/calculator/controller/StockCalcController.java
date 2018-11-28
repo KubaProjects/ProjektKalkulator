@@ -34,7 +34,7 @@ public class StockCalcController {
         HashMap<String, BigDecimal> resultMap = new HashMap<String, BigDecimal>();
         resultMap.put("result", result);
 
-        historyServiceImpl.addToStockHistory(session, stockCalc);
+        historyServiceImpl.addToStockHistory(stockCalc);
 
         return new ResponseEntity<Map<String, BigDecimal>>(resultMap, HttpStatus.OK);
     }
